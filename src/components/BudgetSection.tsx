@@ -1,23 +1,5 @@
 import { motion } from "framer-motion";
-import { Vote, RefreshCw, Eye, Users, MessageCircle, Bell } from "lucide-react";
-
-const principles = [
-  {
-    icon: Vote,
-    title: "Democratic Voting",
-    description: "Every decision is made through group voting. Each voice matters equally.",
-  },
-  {
-    icon: RefreshCw,
-    title: "Real-Time Updates",
-    description: "All changes and plans are updated daily on this website for full transparency.",
-  },
-  {
-    icon: Eye,
-    title: "Complete Transparency",
-    description: "Budget breakdowns, bookings, and decisions are visible to all members.",
-  },
-];
+import { Users, Bell } from "lucide-react";
 
 const updates = [
   {
@@ -77,28 +59,6 @@ const BudgetSection = () => {
             </p>
           </div>
         </motion.div>
-
-        {/* Principles Grid */}
-        <div className="mx-auto mb-20 grid max-w-4xl gap-6 md:grid-cols-3">
-          {principles.map((principle, index) => (
-            <motion.div
-              key={principle.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="rounded-2xl bg-card p-6 text-center shadow-sm"
-            >
-              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-secondary/20">
-                <principle.icon className="h-7 w-7 text-secondary" />
-              </div>
-              <h3 className="mb-2 font-serif text-lg font-semibold text-foreground">
-                {principle.title}
-              </h3>
-              <p className="text-sm text-muted-foreground">{principle.description}</p>
-            </motion.div>
-          ))}
-        </div>
 
         {/* Live Updates */}
         <motion.div

@@ -6,6 +6,7 @@ import TravelSection from "@/components/TravelSection";
 import ItinerarySection from "@/components/ItinerarySection";
 import CruiseSection from "@/components/CruiseSection";
 import BudgetSection from "@/components/BudgetSection";
+import SuggestionBox from "@/components/SuggestionBox";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -19,6 +20,7 @@ const Index = () => {
       <ItinerarySection />
       <CruiseSection />
       <BudgetSection />
+      <SuggestionBox />
       <Footer />
     </div>
   );
