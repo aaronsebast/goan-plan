@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
+import CountdownTimer from "@/components/CountdownTimer";
 import GroupSection from "@/components/GroupSection";
 import TravelSection from "@/components/TravelSection";
 import ItinerarySection from "@/components/ItinerarySection";
@@ -12,6 +13,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation />
       <HeroSection />
+      <CountdownTimer />
       <GroupSection />
       <TravelSection />
       <ItinerarySection />
