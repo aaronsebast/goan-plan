@@ -173,7 +173,7 @@ const TravelSection = () => {
               </div>
               <div>
                 <h3 className="font-serif text-xl font-semibold">Henosh's Journey</h3>
-                <p className="text-sm text-primary/80">Traveling Separately</p>
+                <p className="text-sm text-primary/80">Traveling Separately via Bhavnagar Terminus Express</p>
               </div>
             </div>
             
@@ -198,15 +198,29 @@ const TravelSection = () => {
                 <div className="flex items-start gap-3">
                   <Train className="mt-1 h-4 w-4 text-accent" />
                   <div>
-                    <p className="text-sm text-primary/70">Route</p>
-                    <p className="font-medium">TVCN → BVC</p>
+                    <p className="text-sm text-primary/70">Train</p>
+                    <p className="font-medium">TVCN – BVC Express</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <MapPin className="mt-1 h-4 w-4 text-accent" />
                   <div>
-                    <p className="text-sm text-primary/70">From</p>
+                    <p className="text-sm text-primary/70">Departure Station</p>
+                    <p className="font-medium">Thiruvananthapuram North (Kochuveli)</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <MapPin className="mt-1 h-4 w-4 text-accent" />
+                  <div>
+                    <p className="text-sm text-primary/70">Boarding Station</p>
                     <p className="font-medium">Ernakulam Town (North)</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <MapPin className="mt-1 h-4 w-4 text-accent" />
+                  <div>
+                    <p className="text-sm text-primary/70">Arrival Station</p>
+                    <p className="font-medium">Madgaon</p>
                   </div>
                 </div>
               </div>

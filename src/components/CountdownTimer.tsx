@@ -58,8 +58,8 @@ const CountdownTimer = () => {
           className="text-center"
         >
           <div className="mb-6 flex items-center justify-center gap-2">
-            <Clock className="h-5 w-5 text-accent animate-pulse" />
-            <span className="text-sm font-medium uppercase tracking-widest text-primary/80">
+            <Clock className="h-5 w-5 text-accent animate-pulse drop-shadow-md" />
+            <span className="text-sm font-semibold uppercase tracking-widest text-primary-foreground drop-shadow-md">
               Adventure Begins In
             </span>
           </div>
@@ -74,16 +74,16 @@ const CountdownTimer = () => {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="relative"
               >
-                <div className="glass-card flex h-20 w-20 flex-col items-center justify-center rounded-2xl md:h-28 md:w-28">
-                  <span className="font-serif text-3xl font-bold text-primary md:text-5xl">
+                <div className="glass-card flex h-20 w-20 flex-col items-center justify-center rounded-2xl bg-background/20 backdrop-blur-md md:h-28 md:w-28">
+                  <span className="font-serif text-3xl font-bold text-accent drop-shadow-lg md:text-5xl">
                     {String(block.value).padStart(2, "0")}
                   </span>
-                  <span className="text-[10px] font-medium uppercase tracking-wider text-primary/60 md:text-xs">
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-primary-foreground md:text-xs">
                     {block.label}
                   </span>
                 </div>
                 {index < timeBlocks.length - 1 && (
-                  <span className="absolute -right-2 top-1/2 -translate-y-1/2 text-2xl font-light text-primary/40 md:-right-4 md:text-3xl">
+                  <span className="absolute -right-2 top-1/2 -translate-y-1/2 text-2xl font-bold text-accent/80 drop-shadow-md md:-right-4 md:text-3xl">
                     :
                   </span>
                 )}
@@ -91,7 +91,7 @@ const CountdownTimer = () => {
             ))}
           </div>
 
-          <p className="mt-8 text-sm text-primary/60">
+          <p className="mt-8 text-sm font-medium text-primary-foreground/90 drop-shadow-sm">
             Until departure on April 23, 2026 at 13:15
           </p>
         </motion.div>
