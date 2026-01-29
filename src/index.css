@@ -2,95 +2,120 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+/* Luxury Goa Travel - Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core palette - Coastal Luxury */
+    --background: 40 33% 98%;
+    --foreground: 200 25% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 40 30% 97%;
+    --card-foreground: 200 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 40 30% 97%;
+    --popover-foreground: 200 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Sand Beige - Primary warmth */
+    --primary: 35 45% 75%;
+    --primary-foreground: 200 25% 15%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Ocean Teal - Secondary coolness */
+    --secondary: 185 45% 35%;
+    --secondary-foreground: 40 33% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Soft sand */
+    --muted: 40 20% 92%;
+    --muted-foreground: 200 15% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Sunset Gold */
+    --accent: 38 80% 55%;
+    --accent-foreground: 200 25% 15%;
+
+    /* Palm Green */
+    --palm: 150 35% 35%;
+    --palm-foreground: 40 33% 98%;
+
+    /* Ocean Blue Deep */
+    --ocean: 200 55% 25%;
+    --ocean-foreground: 40 33% 98%;
+
+    /* Sunset gradient colors */
+    --sunset-start: 25 85% 60%;
+    --sunset-mid: 35 90% 55%;
+    --sunset-end: 45 80% 65%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 40 33% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 25% 85%;
+    --input: 35 25% 85%;
+    --ring: 185 45% 35%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Glass effect */
+    --glass-bg: 40 30% 98% / 0.7;
+    --glass-border: 40 30% 90% / 0.5;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 40 30% 97%;
+    --sidebar-foreground: 200 25% 15%;
+    --sidebar-primary: 185 45% 35%;
+    --sidebar-primary-foreground: 40 33% 98%;
+    --sidebar-accent: 35 45% 75%;
+    --sidebar-accent-foreground: 200 25% 15%;
+    --sidebar-border: 35 25% 85%;
+    --sidebar-ring: 185 45% 35%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 200 30% 8%;
+    --foreground: 40 25% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 200 25% 12%;
+    --card-foreground: 40 25% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 200 25% 12%;
+    --popover-foreground: 40 25% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 35 50% 70%;
+    --primary-foreground: 200 30% 8%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 185 40% 45%;
+    --secondary-foreground: 200 30% 8%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 200 20% 18%;
+    --muted-foreground: 40 15% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 38 75% 50%;
+    --accent-foreground: 200 30% 8%;
+
+    --palm: 150 35% 45%;
+    --palm-foreground: 200 30% 8%;
+
+    --ocean: 200 45% 45%;
+    --ocean-foreground: 200 30% 8%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 40 25% 95%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 200 20% 20%;
+    --input: 200 20% 20%;
+    --ring: 185 40% 45%;
+
+    --glass-bg: 200 25% 12% / 0.8;
+    --glass-border: 200 20% 25% / 0.5;
+
+    --sidebar-background: 200 25% 12%;
+    --sidebar-foreground: 40 25% 95%;
+    --sidebar-primary: 185 40% 45%;
+    --sidebar-primary-foreground: 200 30% 8%;
+    --sidebar-accent: 35 50% 70%;
+    --sidebar-accent-foreground: 200 30% 8%;
+    --sidebar-border: 200 20% 20%;
+    --sidebar-ring: 185 40% 45%;
   }
 }
 
@@ -99,7 +124,66 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-md border;
+    background: hsl(var(--glass-bg));
+    border-color: hsl(var(--glass-border));
+  }
+
+  .text-gradient-sunset {
+    background: linear-gradient(135deg, hsl(var(--sunset-start)), hsl(var(--sunset-mid)), hsl(var(--sunset-end)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-sunset {
+    background: linear-gradient(135deg, hsl(var(--sunset-start)), hsl(var(--sunset-mid)), hsl(var(--sunset-end)));
+  }
+
+  .bg-gradient-ocean {
+    background: linear-gradient(180deg, hsl(var(--ocean)), hsl(var(--secondary)));
+  }
+
+  .section-overlay {
+    @apply absolute inset-0;
+    background: linear-gradient(180deg, hsl(200 30% 8% / 0.4) 0%, hsl(200 30% 8% / 0.6) 100%);
+  }
+
+  .luxury-heading {
+    font-family: 'Playfair Display', serif;
+    @apply tracking-wide;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
   }
 }
