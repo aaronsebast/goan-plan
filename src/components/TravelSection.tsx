@@ -63,7 +63,7 @@ const TravelSection = () => {
                   <Calendar className="mt-1 h-4 w-4 text-accent" />
                   <div>
                     <p className="text-sm text-primary/70">Date</p>
-                    <p className="font-medium">23 April 2025</p>
+                    <p className="font-medium">23 April 2026</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -131,7 +131,7 @@ const TravelSection = () => {
                   <Calendar className="mt-1 h-4 w-4 text-accent" />
                   <div>
                     <p className="text-sm text-primary/70">Date</p>
-                    <p className="font-medium">26 April 2025</p>
+                    <p className="font-medium">26 April 2026</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">

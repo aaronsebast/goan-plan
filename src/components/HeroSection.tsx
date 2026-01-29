@@ -23,7 +23,7 @@ const HeroSection = () => {
           className="mb-4"
         >
           <span className="inline-block rounded-full border border-primary/40 bg-primary/20 px-4 py-2 text-sm font-medium tracking-widest text-primary-foreground backdrop-blur-sm">
-            APRIL 23 – 27, 2025
+            APRIL 23 – 27, 2026
           </span>
         </motion.div>
         
