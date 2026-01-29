@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Clock } from "lucide-react";
 
-const DEPARTURE_DATE = new Date("2025-04-23T13:15:00+05:30").getTime();
+const DEPARTURE_DATE = new Date("2026-04-23T13:15:00+05:30").getTime();
 
 interface TimeLeft {
   days: number;
@@ -92,7 +92,7 @@ const CountdownTimer = () => {
           </div>
 
           <p className="mt-8 text-sm text-primary/60">
-            Until departure on April 23, 2025 at 13:15
+            Until departure on April 23, 2026 at 13:15
           </p>
         </motion.div>
       </div>

@@ -25,7 +25,7 @@ const Footer = () => {
         {/* Footer Info */}
         <div className="text-center">
           <p className="mb-4 text-sm text-primary/70">
-            Goa Trip 2025 • April 23-27
+            Goa Trip 2026 • April 23-27
           </p>
           <div className="flex items-center justify-center gap-1 text-sm text-primary/50">
             <span>Made with</span>

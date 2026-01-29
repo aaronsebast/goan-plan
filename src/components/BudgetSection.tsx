@@ -73,7 +73,7 @@ const BudgetSection = () => {
             <p className="font-serif text-xl leading-relaxed md:text-2xl">
               "All plans, updates, and changes are made by democratic group voting 
               and budget consideration. Every decision is transparent and updated 
-              daily in real time on this website."
+              daily in real time."
             </p>
           </div>
         </motion.div>
