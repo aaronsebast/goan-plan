@@ -1,26 +1,55 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Palmtree } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
   { label: "Group", href: "#group" },
   { label: "Travel", href: "#travel" },
+  { label: "Routes", href: "#routes" },
   { label: "Itinerary", href: "#itinerary" },
-  { label: "Updates", href: "#updates" },
+  { label: "Packing", href: "#packing" },
+  { label: "Weather", href: "#weather" },
 ];
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Determine active section
+      const sections = navItems.map((item) => item.href.replace("#", ""));
+      let currentSection = "";
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            currentSection = section;
+            break;
+          }
+        }
+      }
+
+      setActiveSection(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNavClick = (href: string) => {
+    setIsMobileMenuOpen(false);
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
@@ -44,29 +73,40 @@ const Navigation = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-6 md:flex">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.label}
-                href={item.href}
-                className={`text-sm font-medium tracking-wide transition-colors ${
+                onClick={() => handleNavClick(item.href)}
+                className={`relative text-sm font-medium tracking-wide transition-colors ${
                   isScrolled
                     ? "text-muted-foreground hover:text-foreground"
                     : "text-primary/80 hover:text-primary"
-                }`}
+                } ${activeSection === item.href.replace("#", "") ? "!text-secondary" : ""}`}
               >
                 {item.label}
-              </a>
+                {activeSection === item.href.replace("#", "") && (
+                  <motion.div
+                    layoutId="activeSection"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-secondary"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </button>
             ))}
+            <ThemeToggle />
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden ${isScrolled ? 'text-foreground' : 'text-primary'}`}
-          >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          {/* Mobile Menu Button & Theme Toggle */}
+          <div className="flex items-center gap-3 md:hidden">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={isScrolled ? 'text-foreground' : 'text-primary'}
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
       </motion.header>
 
@@ -81,14 +121,17 @@ const Navigation = () => {
           >
             <nav className="flex flex-col gap-4">
               {navItems.map((item) => (
-                <a
+                <button
                   key={item.label}
-                  href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium text-foreground transition-colors hover:text-secondary"
+                  onClick={() => handleNavClick(item.href)}
+                  className={`text-left text-lg font-medium transition-colors hover:text-secondary ${
+                    activeSection === item.href.replace("#", "")
+                      ? "text-secondary"
+                      : "text-foreground"
+                  }`}
                 >
                   {item.label}
-                </a>
+                </button>
               ))}
             </nav>
           </motion.div>

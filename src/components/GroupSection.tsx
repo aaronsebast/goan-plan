@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { User, Plane } from "lucide-react";
+import { User } from "lucide-react";
 
 const groupMembers = [
   { name: "Aaron", initial: "A" },
   { name: "Aldrena", initial: "A" },
   { name: "Francis", initial: "F" },
   { name: "Sinoj", initial: "S" },
-  { name: "Henosh", initial: "H", separate: true },
+  { name: "Henosh", initial: "H" },
   { name: "Nithin", initial: "N" },
   { name: "Sonu", initial: "S" },
   { name: "Hayden", initial: "H" },
@@ -42,12 +42,12 @@ const GroupSection = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className={`group relative ${member.separate ? 'col-span-1' : ''}`}
+              className="group relative"
             >
-              <div className={`glass-card relative flex flex-col items-center rounded-2xl p-4 md:p-6 transition-all hover:scale-105 ${member.separate ? 'ring-2 ring-accent' : ''}`}>
+              <div className="glass-card relative flex flex-col items-center rounded-2xl p-4 md:p-6 transition-all hover:scale-105">
                 {/* Avatar */}
-                <div className={`mb-3 flex h-14 w-14 items-center justify-center rounded-full md:h-16 md:w-16 ${member.separate ? 'bg-gradient-sunset' : 'bg-secondary'}`}>
-                  <span className={`text-xl font-semibold md:text-2xl ${member.separate ? 'text-accent-foreground' : 'text-secondary-foreground'}`}>
+                <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-secondary md:h-16 md:w-16">
+                  <span className="text-xl font-semibold text-secondary-foreground md:text-2xl">
                     {member.initial}
                   </span>
                 </div>
@@ -56,14 +56,6 @@ const GroupSection = () => {
                 <span className="text-sm font-medium text-foreground md:text-base">
                   {member.name}
                 </span>
-                
-                {/* Separate Travel Badge */}
-                {member.separate && (
-                  <div className="mt-2 flex items-center gap-1 rounded-full bg-accent/20 px-2 py-1">
-                    <Plane className="h-3 w-3 text-accent" />
-                    <span className="text-[10px] font-medium text-accent">Separate Travel</span>
-                  </div>
-                )}
               </div>
             </motion.div>
           ))}
