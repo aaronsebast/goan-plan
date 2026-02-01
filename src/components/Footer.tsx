@@ -45,9 +45,6 @@ const Footer = () => {
           <a href="#itinerary" className="text-primary/70 transition-colors hover:text-primary">
             Itinerary
           </a>
-          <a href="#cruise" className="text-primary/70 transition-colors hover:text-primary">
-            Cruise
-          </a>
           <a href="#updates" className="text-primary/70 transition-colors hover:text-primary">
             Updates
           </a>
