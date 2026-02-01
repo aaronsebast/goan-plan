@@ -37,14 +37,14 @@ const TravelSection = () => {
               </div>
               <div>
                 <h3 className="font-serif text-xl font-semibold">Departure to Goa</h3>
-                <p className="text-sm text-primary/80">Group Journey (8 people)</p>
+                <p className="text-sm text-primary/80">Group Journey (9 people)</p>
               </div>
             </div>
             
             <div className="p-6">
               <div className="mb-6 flex items-center justify-between rounded-xl bg-background/5 p-4">
                 <div className="text-center">
-                  <p className="text-2xl font-bold text-primary">13:15</p>
+                  <p className="text-2xl font-bold text-primary">20:20</p>
                   <p className="text-sm text-primary/70">Departure</p>
                 </div>
                 <div className="flex flex-1 items-center justify-center px-4">
@@ -53,7 +53,7 @@ const TravelSection = () => {
                   <div className="h-px flex-1 bg-primary/30" />
                 </div>
                 <div className="text-center">
-                  <p className="text-2xl font-bold text-primary">04:35</p>
+                  <p className="text-2xl font-bold text-primary">10:50</p>
                   <p className="text-sm text-primary/70">Arrival (+1 day)</p>
                 </div>
               </div>
@@ -70,14 +70,14 @@ const TravelSection = () => {
                   <Train className="mt-1 h-4 w-4 text-accent" />
                   <div>
                     <p className="text-sm text-primary/70">Train</p>
-                    <p className="font-medium">Nethravathi Express (16346)</p>
+                    <p className="font-medium">TVCN BVC EXPRESS (19259)</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <MapPin className="mt-1 h-4 w-4 text-accent" />
                   <div>
                     <p className="text-sm text-primary/70">From</p>
-                    <p className="font-medium">Ernakulam Junction (South)</p>
+                    <p className="font-medium">Ernakulam Town (North)</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -159,73 +159,6 @@ const TravelSection = () => {
             </div>
           </motion.div>
 
-          {/* Henosh's Separate Travel */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass-card overflow-hidden rounded-2xl border-2 border-accent/30 bg-background/10 backdrop-blur-lg"
-          >
-            <div className="flex items-center gap-3 border-b border-accent/20 bg-accent/20 px-6 py-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-sunset">
-                <User className="h-5 w-5 text-accent-foreground" />
-              </div>
-              <div>
-                <h3 className="font-serif text-xl font-semibold">Henosh's Journey</h3>
-                <p className="text-sm text-primary/80">Traveling Separately via Bhavnagar Terminus Express</p>
-              </div>
-            </div>
-            
-            <div className="p-6">
-              <div className="mb-6 flex items-center justify-between rounded-xl bg-accent/10 p-4">
-                <div className="text-center">
-                  <p className="text-2xl font-bold text-primary">20:20</p>
-                  <p className="text-sm text-primary/70">Departure</p>
-                </div>
-                <div className="flex flex-1 items-center justify-center px-4">
-                  <div className="h-px flex-1 bg-accent/30" />
-                  <Train className="mx-2 h-5 w-5 text-accent" />
-                  <div className="h-px flex-1 bg-accent/30" />
-                </div>
-                <div className="text-center">
-                  <p className="text-2xl font-bold text-primary">10:50</p>
-                  <p className="text-sm text-primary/70">Arrival (+1 day)</p>
-                </div>
-              </div>
-
-              <div className="grid gap-4 md:grid-cols-2">
-                <div className="flex items-start gap-3">
-                  <Train className="mt-1 h-4 w-4 text-accent" />
-                  <div>
-                    <p className="text-sm text-primary/70">Train</p>
-                    <p className="font-medium">TVCN – BVC Express</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <MapPin className="mt-1 h-4 w-4 text-accent" />
-                  <div>
-                    <p className="text-sm text-primary/70">Departure Station</p>
-                    <p className="font-medium">Thiruvananthapuram North (Kochuveli)</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <MapPin className="mt-1 h-4 w-4 text-accent" />
-                  <div>
-                    <p className="text-sm text-primary/70">Boarding Station</p>
-                    <p className="font-medium">Ernakulam Town (North)</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <MapPin className="mt-1 h-4 w-4 text-accent" />
-                  <div>
-                    <p className="text-sm text-primary/70">Arrival Station</p>
-                    <p className="font-medium">Madgaon</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>

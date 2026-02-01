@@ -6,7 +6,6 @@ const navItems = [
   { label: "Group", href: "#group" },
   { label: "Travel", href: "#travel" },
   { label: "Itinerary", href: "#itinerary" },
-  { label: "Cruise", href: "#cruise" },
   { label: "Updates", href: "#updates" },
 ];
 
@@ -40,7 +39,7 @@ const Navigation = () => {
           <a href="#" className="flex items-center gap-2">
             <Palmtree className={`h-6 w-6 ${isScrolled ? 'text-secondary' : 'text-primary'}`} />
             <span className={`font-serif text-xl font-semibold ${isScrolled ? 'text-foreground' : 'text-primary'}`}>
-              Goa 2025
+              Goa 2026
             </span>
           </a>
 
