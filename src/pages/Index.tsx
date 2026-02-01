@@ -3,7 +3,10 @@ import HeroSection from "@/components/HeroSection";
 import CountdownTimer from "@/components/CountdownTimer";
 import GroupSection from "@/components/GroupSection";
 import TravelSection from "@/components/TravelSection";
+import RouteMapSection from "@/components/RouteMapSection";
 import ItinerarySection from "@/components/ItinerarySection";
+import PackingChecklist from "@/components/PackingChecklist";
+import WeatherWidget from "@/components/WeatherWidget";
 import BudgetSection from "@/components/BudgetSection";
 import SuggestionBox from "@/components/SuggestionBox";
 import Footer from "@/components/Footer";
@@ -16,7 +19,10 @@ const Index = () => {
       <CountdownTimer />
       <GroupSection />
       <TravelSection />
+      <RouteMapSection />
       <ItinerarySection />
+      <PackingChecklist />
+      <WeatherWidget />
       <BudgetSection />
       <SuggestionBox />
       <Footer />
