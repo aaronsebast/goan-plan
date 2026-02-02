@@ -5,6 +5,8 @@ import GroupSection from "@/components/GroupSection";
 import TravelSection from "@/components/TravelSection";
 import RouteMapSection from "@/components/RouteMapSection";
 import ItinerarySection from "@/components/ItinerarySection";
+import TrekkingSection from "@/components/TrekkingSection";
+import DailyBudgetSection from "@/components/DailyBudgetSection";
 import PackingChecklist from "@/components/PackingChecklist";
 import WeatherWidget from "@/components/WeatherWidget";
 import BudgetSection from "@/components/BudgetSection";
@@ -21,6 +23,8 @@ const Index = () => {
       <TravelSection />
       <RouteMapSection />
       <ItinerarySection />
+      <TrekkingSection />
+      <DailyBudgetSection />
       <PackingChecklist />
       <WeatherWidget />
       <BudgetSection />

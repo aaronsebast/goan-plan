@@ -14,7 +14,7 @@ interface Suggestion {
 }
 
 const STORAGE_KEY = "goa-trip-suggestions";
-const EXPIRY_TIME = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+const EXPIRY_TIME = 72 * 60 * 60 * 1000; // 72 hours in milliseconds
 
 const SuggestionBox = () => {
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
@@ -96,7 +96,7 @@ const SuggestionBox = () => {
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
             Share your ideas, improvements, or feedback for the trip or website.
-            All suggestions are visible and will be automatically removed after 24 hours.
+            All suggestions are visible and will be automatically removed after 72 hours.
           </p>
         </motion.div>
 
