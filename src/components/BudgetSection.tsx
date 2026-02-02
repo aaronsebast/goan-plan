@@ -11,13 +11,13 @@ const updates = [
   {
     date: "Upcoming",
     title: "Train Tickets",
-    description: "Booking confirmation for Nethravathi Express pending.",
+    description: "Booking confirmation for TVCN BVC Express pending.",
     type: "pending",
   },
   {
-    date: "Upcoming",
-    title: "Cruise Selection",
-    description: "Group voting for dinner cruise options to begin soon.",
+    date: "Voting",
+    title: "Day 2 Trekking Plan",
+    description: "Group voting for Day 2: South Goa vs Dudhsagar Trekking.",
     type: "pending",
   },
 ];

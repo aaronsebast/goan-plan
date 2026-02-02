@@ -8,8 +8,9 @@ const navItems = [
   { label: "Travel", href: "#travel" },
   { label: "Routes", href: "#routes" },
   { label: "Itinerary", href: "#itinerary" },
+  { label: "Trekking", href: "#trekking" },
+  { label: "Budget", href: "#budget" },
   { label: "Packing", href: "#packing" },
-  { label: "Weather", href: "#weather" },
 ];
 
 const Navigation = () => {
