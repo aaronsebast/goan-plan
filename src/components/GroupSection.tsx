@@ -11,6 +11,7 @@ const groupMembers = [
   { name: "Sonu", initial: "S" },
   { name: "Hayden", initial: "H" },
   { name: "Megha", initial: "M" },
+  { name: "Alter", initial: "A" },
 ];
 
 const GroupSection = () => {
@@ -29,7 +30,7 @@ const GroupSection = () => {
             The Travelers
           </span>
           <h2 className="luxury-heading text-4xl font-semibold text-foreground md:text-5xl">
-            Our Group of <span className="italic">Nine</span>
+            Our Group of <span className="italic">Ten</span>
           </h2>
         </motion.div>
 
@@ -70,7 +71,7 @@ const GroupSection = () => {
           className="mt-12 text-center text-muted-foreground"
         >
           <User className="mr-2 inline h-4 w-4" />
-          9 friends, 4 days, 1 unforgettable adventure
+          10 friends, 3 days, 1 unforgettable adventure
         </motion.p>
       </div>
     </section>
