@@ -8,6 +8,7 @@ const navItems = [
   { label: "Travel", href: "#travel" },
   { label: "Routes", href: "#routes" },
   { label: "Itinerary", href: "#itinerary" },
+  { label: "Places", href: "#places" },
   { label: "Budget", href: "#budget" },
   { label: "Packing", href: "#packing" },
 ];
