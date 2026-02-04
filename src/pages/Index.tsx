@@ -5,6 +5,7 @@ import GroupSection from "@/components/GroupSection";
 import TravelSection from "@/components/TravelSection";
 import RouteMapSection from "@/components/RouteMapSection";
 import ItinerarySection from "@/components/ItinerarySection";
+import PlaceInfoSection from "@/components/PlaceInfoSection";
 import DailyBudgetSection from "@/components/DailyBudgetSection";
 import PackingChecklist from "@/components/PackingChecklist";
 import WeatherWidget from "@/components/WeatherWidget";
@@ -22,6 +23,7 @@ const Index = () => {
       <TravelSection />
       <RouteMapSection />
       <ItinerarySection />
+      <PlaceInfoSection />
       <DailyBudgetSection />
       <PackingChecklist />
       <WeatherWidget />
