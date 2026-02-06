@@ -15,10 +15,10 @@ const updates = [
     type: "pending",
   },
   {
-    date: "Voting",
-    title: "Day 2 Trekking Plan",
-    description: "Group voting for Day 2: South Goa vs Dudhsagar Trekking.",
-    type: "pending",
+    date: "Active",
+    title: "Emergency GPS Tracking",
+    description: "Live GPS tracking system enabled for all team members during the trip.",
+    type: "announcement",
   },
 ];
 
