@@ -54,7 +54,7 @@ const WeatherWidget = () => {
             Goa <span className="italic">Weather</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-primary-foreground/70">
-            Expected weather conditions during your trip (Late April)
+            Expected weather conditions during our trip (Late April)
           </p>
         </motion.div>
 
