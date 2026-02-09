@@ -13,11 +13,13 @@ import WeatherWidget from "@/components/WeatherWidget";
 import BudgetSection from "@/components/BudgetSection";
 import SuggestionBox from "@/components/SuggestionBox";
 import Footer from "@/components/Footer";
+import EmergencyHelp from "@/components/EmergencyHelp";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
+      <EmergencyHelp />
       <HeroSection />
       <CountdownTimer />
       <GroupSection />
