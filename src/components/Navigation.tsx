@@ -12,6 +12,7 @@ const navItems = [
   { label: "Places", href: "#places" },
   { label: "Budget", href: "#budget" },
   { label: "Packing", href: "#packing" },
+  { label: "Memories", href: "#memories" },
 ];
 
 const Navigation = () => {
