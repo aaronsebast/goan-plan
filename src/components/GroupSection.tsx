@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { User } from "lucide-react";
+import haydenProfile from "@/assets/hayden-profile.jpg";
 
-const groupMembers = [
+const groupMembers: { name: string; initial: string; image?: string }[] = [
   { name: "Aaron", initial: "A" },
   { name: "Aldrena", initial: "A" },
   { name: "Francis", initial: "F" },
@@ -9,7 +10,7 @@ const groupMembers = [
   { name: "Henosh", initial: "H" },
   { name: "Nithin", initial: "N" },
   { name: "Sonu", initial: "S" },
-  { name: "Hayden", initial: "H" },
+  { name: "Hayden", initial: "H", image: haydenProfile },
   { name: "Megha", initial: "M" },
   { name: "Alter", initial: "A" },
 ];
@@ -46,11 +47,15 @@ const GroupSection = () => {
               className="group relative"
             >
               <div className="glass-card relative flex flex-col items-center rounded-2xl p-4 md:p-6 transition-all hover:scale-105">
-                {/* Avatar */}
-                <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-secondary md:h-16 md:w-16">
-                  <span className="text-xl font-semibold text-secondary-foreground md:text-2xl">
-                    {member.initial}
-                  </span>
+              {/* Avatar */}
+                <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-secondary md:h-16 md:w-16 overflow-hidden">
+                  {member.image ? (
+                    <img src={member.image} alt={member.name} className="h-full w-full object-cover" />
+                  ) : (
+                    <span className="text-xl font-semibold text-secondary-foreground md:text-2xl">
+                      {member.initial}
+                    </span>
+                  )}
                 </div>
                 
                 {/* Name */}
