@@ -14,6 +14,7 @@ import BudgetSection from "@/components/BudgetSection";
 import SuggestionBox from "@/components/SuggestionBox";
 import Footer from "@/components/Footer";
 import EmergencyHelp from "@/components/EmergencyHelp";
+import MemoriesSection from "@/components/MemoriesSection";
 
 const Index = () => {
   return (
@@ -32,6 +33,7 @@ const Index = () => {
       <PackingChecklist />
       <WeatherWidget />
       <BudgetSection />
+      <MemoriesSection />
       <SuggestionBox />
       <Footer />
     </div>

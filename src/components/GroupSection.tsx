@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { User } from "lucide-react";
 import haydenProfile from "@/assets/hayden-profile.jpg";
+import meghaProfile from "@/assets/megha-profile.jpg";
+import alterProfile from "@/assets/alter-profile.jpg";
 
 const groupMembers: { name: string; initial: string; image?: string }[] = [
   { name: "Aaron", initial: "A" },
@@ -11,8 +13,8 @@ const groupMembers: { name: string; initial: string; image?: string }[] = [
   { name: "Nithin", initial: "N" },
   { name: "Sonu", initial: "S" },
   { name: "Hayden", initial: "H", image: haydenProfile },
-  { name: "Megha", initial: "M" },
-  { name: "Alter", initial: "A" },
+  { name: "Megha", initial: "M", image: meghaProfile },
+  { name: "Alter", initial: "A", image: alterProfile },
 ];
 
 const GroupSection = () => {
