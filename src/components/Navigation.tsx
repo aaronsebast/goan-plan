@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Palmtree } from "lucide-react";
+import { Menu, X, Palmtree, Shield } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
@@ -16,6 +17,7 @@ const navItems = [
 ];
 
 const Navigation = () => {
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -97,6 +99,17 @@ const Navigation = () => {
                 )}
               </button>
             ))}
+            <button
+              onClick={() => navigate("/admin/login")}
+              className={`flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium transition-all ${
+                isScrolled
+                  ? "bg-secondary/10 text-secondary hover:bg-secondary/20"
+                  : "bg-primary/20 text-primary hover:bg-primary/30"
+              }`}
+            >
+              <Shield className="h-3 w-3" />
+              Admin
+            </button>
             <ThemeToggle />
           </nav>
 
@@ -136,6 +149,16 @@ const Navigation = () => {
                   {item.label}
                 </button>
               ))}
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  navigate("/admin/login");
+                }}
+                className="flex items-center gap-2 text-left text-lg font-medium text-secondary transition-colors hover:text-secondary/80"
+              >
+                <Shield className="h-5 w-5" />
+                Admin Login
+              </button>
             </nav>
           </motion.div>
         )}

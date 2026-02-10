@@ -14,7 +14,114 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      admin_emails: {
+        Row: {
+          created_at: string | null
+          email: string
+          id: string
+          name: string
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          id?: string
+          name: string
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          id?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      budget_accommodation: {
+        Row: {
+          id: string
+          notes: string | null
+          sponsors: Json
+          total_amount: number
+          updated_at: string | null
+          updated_by: string | null
+        }
+        Insert: {
+          id?: string
+          notes?: string | null
+          sponsors?: Json
+          total_amount?: number
+          updated_at?: string | null
+          updated_by?: string | null
+        }
+        Update: {
+          id?: string
+          notes?: string | null
+          sponsors?: Json
+          total_amount?: number
+          updated_at?: string | null
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
+      budget_security_deposits: {
+        Row: {
+          amount: number
+          collected_at: string | null
+          id: string
+          participant_name: string
+          refunded_at: string | null
+          status: string
+          updated_at: string | null
+        }
+        Insert: {
+          amount?: number
+          collected_at?: string | null
+          id?: string
+          participant_name: string
+          refunded_at?: string | null
+          status?: string
+          updated_at?: string | null
+        }
+        Update: {
+          amount?: number
+          collected_at?: string | null
+          id?: string
+          participant_name?: string
+          refunded_at?: string | null
+          status?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      budget_train_tickets: {
+        Row: {
+          id: string
+          is_excluded: boolean | null
+          is_sponsored: boolean | null
+          participant_name: string
+          ticket_cost_down: number | null
+          ticket_cost_up: number | null
+          updated_at: string | null
+        }
+        Insert: {
+          id?: string
+          is_excluded?: boolean | null
+          is_sponsored?: boolean | null
+          participant_name: string
+          ticket_cost_down?: number | null
+          ticket_cost_up?: number | null
+          updated_at?: string | null
+        }
+        Update: {
+          id?: string
+          is_excluded?: boolean | null
+          is_sponsored?: boolean | null
+          participant_name?: string
+          ticket_cost_down?: number | null
+          ticket_cost_up?: number | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
