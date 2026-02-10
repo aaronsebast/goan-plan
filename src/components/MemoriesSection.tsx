@@ -8,7 +8,7 @@ import cruiseDinner from "@/assets/cruise-dinner.jpg";
 import marvellaVilla from "@/assets/marvella-villa.jpg";
 import heroSunset from "@/assets/hero-goa-sunset.jpg";
 
-const GOOGLE_DRIVE_FOLDER = "https://drive.google.com/drive/folders/YOUR_FOLDER_ID";
+const GOOGLE_DRIVE_FOLDER = "https://drive.google.com/drive/folders/1qgF8KKBovFLvqJdKK0_LqhKZVDcYB9Xf";
 
 const galleryImages = [
   { src: goaFort, alt: "Historic Goa Fort", span: "tall" },
