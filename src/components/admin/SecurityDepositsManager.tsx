@@ -78,6 +78,19 @@ const SecurityDepositsManager = () => {
 
     const results = await Promise.all(promises);
     const hasError = results.some((r) => r.error);
+
+    // Write audit log
+    const collectedCount = deposits.filter((d) => d.status === "collected").length;
+    const pendingCount = deposits.filter((d) => d.status === "pending").length;
+    await supabase.from("budget_audit_log" as any).insert({
+      section: "Security Deposits",
+      action: "update",
+      field_name: "statuses",
+      previous_value: "",
+      new_value: `Collected: ${collectedCount}, Pending: ${pendingCount}`,
+      changed_by: "admin",
+    });
+
     setSaving(false);
 
     if (hasError) {

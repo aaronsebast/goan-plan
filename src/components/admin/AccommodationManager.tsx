@@ -62,6 +62,16 @@ const AccommodationManager = () => {
       if (data) setRecordId((data as any).id);
     }
 
+    // Write audit log
+    await supabase.from("budget_audit_log" as any).insert({
+      section: "Accommodation",
+      action: "update",
+      field_name: "total_amount, sponsors, notes",
+      previous_value: "",
+      new_value: `₹${totalAmount} | ${sponsors.join(", ")}`,
+      changed_by: "admin",
+    });
+
     setSaving(false);
     if (error) {
       toast({ title: "Error", description: "Failed to save. Try again.", variant: "destructive" });

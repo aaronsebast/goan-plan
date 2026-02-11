@@ -62,6 +62,69 @@ export type Database = {
         }
         Relationships: []
       }
+      budget_audit_log: {
+        Row: {
+          action: string
+          changed_by: string | null
+          created_at: string
+          field_name: string | null
+          id: string
+          new_value: string | null
+          previous_value: string | null
+          section: string
+        }
+        Insert: {
+          action: string
+          changed_by?: string | null
+          created_at?: string
+          field_name?: string | null
+          id?: string
+          new_value?: string | null
+          previous_value?: string | null
+          section: string
+        }
+        Update: {
+          action?: string
+          changed_by?: string | null
+          created_at?: string
+          field_name?: string | null
+          id?: string
+          new_value?: string | null
+          previous_value?: string | null
+          section?: string
+        }
+        Relationships: []
+      }
+      budget_borrows: {
+        Row: {
+          amount: number
+          borrower_name: string
+          created_at: string
+          id: string
+          lender_name: string
+          reason: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          amount?: number
+          borrower_name: string
+          created_at?: string
+          id?: string
+          lender_name: string
+          reason?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          amount?: number
+          borrower_name?: string
+          created_at?: string
+          id?: string
+          lender_name?: string
+          reason?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       budget_security_deposits: {
         Row: {
           amount: number
@@ -127,7 +190,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      is_admin_email: { Args: { check_email: string }; Returns: boolean }
     }
     Enums: {
       [_ in never]: never
