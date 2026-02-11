@@ -8,9 +8,7 @@ import { lovable } from "@/integrations/lovable";
 import { toast } from "@/hooks/use-toast";
 
 const ALLOWED_EMAILS = [
-  "aaron.latvia22@gmail.com",
-  "annmaryaldrena1225@gmail.com",
-  "francisx799@gmail.com",
+  "plangoan@gmail.com",
 ];
 
 const AdminLogin = () => {

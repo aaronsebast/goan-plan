@@ -68,6 +68,18 @@ const TrainTicketsManager = () => {
 
     const results = await Promise.all(promises);
     const hasError = results.some((r) => r.error);
+
+    // Write audit log
+    const total = tickets.filter((t) => !t.is_excluded).reduce((s, t) => s + t.ticket_cost_up + t.ticket_cost_down, 0);
+    await supabase.from("budget_audit_log" as any).insert({
+      section: "Train Tickets",
+      action: "update",
+      field_name: "all tickets",
+      previous_value: "",
+      new_value: `Total: ₹${total}`,
+      changed_by: "admin",
+    });
+
     setSaving(false);
 
     if (hasError) {

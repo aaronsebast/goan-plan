@@ -8,11 +8,11 @@ import { toast } from "@/hooks/use-toast";
 import AccommodationManager from "@/components/admin/AccommodationManager";
 import TrainTicketsManager from "@/components/admin/TrainTicketsManager";
 import SecurityDepositsManager from "@/components/admin/SecurityDepositsManager";
+import BorrowExpensesManager from "@/components/admin/BorrowExpensesManager";
+import AuditLogManager from "@/components/admin/AuditLogManager";
 
 const ALLOWED_EMAILS = [
-  "aaron.latvia22@gmail.com",
-  "annmaryaldrena1225@gmail.com",
-  "francisx799@gmail.com",
+  "plangoan@gmail.com",
 ];
 
 const AdminDashboard = () => {
@@ -100,6 +100,12 @@ const AdminDashboard = () => {
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
             <SecurityDepositsManager />
+          </motion.div>
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
+            <BorrowExpensesManager />
+          </motion.div>
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
+            <AuditLogManager />
           </motion.div>
         </div>
       </main>
