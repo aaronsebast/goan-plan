@@ -17,7 +17,7 @@ const CountdownTimer = () => {
 
   useEffect(() => {
     setHasMounted(true);
-    
+
     const calculateTimeLeft = () => {
       const now = new Date().getTime();
       const difference = DEPARTURE_DATE - now;
@@ -34,7 +34,6 @@ const CountdownTimer = () => {
 
     calculateTimeLeft();
     const timer = setInterval(calculateTimeLeft, 1000);
-
     return () => clearInterval(timer);
   }, []);
 
@@ -48,7 +47,7 @@ const CountdownTimer = () => {
   if (!hasMounted) return null;
 
   return (
-    <section className="relative bg-gradient-ocean py-16 text-ocean-foreground md:py-20">
+    <section className="relative py-16 md:py-20">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,8 +57,8 @@ const CountdownTimer = () => {
           className="text-center"
         >
           <div className="mb-6 flex items-center justify-center gap-2">
-            <Clock className="h-5 w-5 text-accent animate-pulse drop-shadow-md" />
-            <span className="text-sm font-semibold uppercase tracking-widest text-primary-foreground drop-shadow-md">
+            <Clock className="h-5 w-5 text-primary animate-pulse" />
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
               Adventure Begins In
             </span>
           </div>
@@ -74,16 +73,16 @@ const CountdownTimer = () => {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="relative"
               >
-                <div className="glass-card flex h-20 w-20 flex-col items-center justify-center rounded-2xl bg-background/20 backdrop-blur-md md:h-28 md:w-28">
-                  <span className="font-serif text-3xl font-bold text-accent drop-shadow-lg md:text-5xl">
+                <div className="glass-card flex h-20 w-20 flex-col items-center justify-center rounded-2xl md:h-28 md:w-28">
+                  <span className="font-serif text-3xl font-bold text-primary md:text-5xl">
                     {String(block.value).padStart(2, "0")}
                   </span>
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-primary-foreground md:text-xs">
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground md:text-xs">
                     {block.label}
                   </span>
                 </div>
                 {index < timeBlocks.length - 1 && (
-                  <span className="absolute -right-2 top-1/2 -translate-y-1/2 text-2xl font-bold text-accent/80 drop-shadow-md md:-right-4 md:text-3xl">
+                  <span className="absolute -right-2 top-1/2 -translate-y-1/2 text-2xl font-bold text-primary/40 md:-right-4 md:text-3xl">
                     :
                   </span>
                 )}
@@ -91,7 +90,7 @@ const CountdownTimer = () => {
             ))}
           </div>
 
-          <p className="mt-8 text-sm font-medium text-primary-foreground/90 drop-shadow-sm">
+          <p className="mt-8 text-sm font-medium text-muted-foreground">
             Until departure on April 23, 2026 at 13:15
           </p>
         </motion.div>
