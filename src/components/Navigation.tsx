@@ -8,6 +8,7 @@ const mainNavItems = [
   { label: "Group", href: "/group" },
   { label: "Itinerary", href: "/itinerary" },
   { label: "Stay", href: "/stay" },
+  { label: "Tickets", href: "/tickets" },
   { label: "Budget", href: "/budget" },
 ];
 

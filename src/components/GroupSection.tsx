@@ -29,7 +29,7 @@ interface GroupSectionProps {
 }
 
 const GroupSection = ({ preview = false }: GroupSectionProps) => {
-  const displayMembers = preview ? groupMembers.slice(0, 5) : groupMembers;
+  const displayMembers = groupMembers;
 
   return (
     <section id="group" className={`relative ${preview ? "py-12" : "py-24 md:py-32"}`}>
@@ -51,7 +51,7 @@ const GroupSection = ({ preview = false }: GroupSectionProps) => {
         </motion.div>
 
         {/* Group Grid */}
-        <div className={`mx-auto grid max-w-4xl ${preview ? "grid-cols-5 gap-4" : "grid-cols-3 gap-4 md:grid-cols-5 md:gap-6"}`}>
+        <div className={`mx-auto grid max-w-4xl ${preview ? "grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5" : "grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5 md:gap-6"}`}>
           {displayMembers.map((member, index) => (
             <motion.div
               key={member.name}
@@ -76,16 +76,6 @@ const GroupSection = ({ preview = false }: GroupSectionProps) => {
           ))}
         </div>
 
-        {preview && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="mt-6 text-center text-sm text-muted-foreground"
-          >
-            +5 more travelers
-          </motion.p>
-        )}
 
         {!preview && (
           <motion.p

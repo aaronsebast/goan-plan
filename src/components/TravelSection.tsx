@@ -37,7 +37,7 @@ const TravelSection = () => {
               </div>
               <div>
                 <h3 className="font-serif text-xl font-semibold">Departure to Goa</h3>
-                <p className="text-sm text-primary/80">Group Journey (9 people)</p>
+                <p className="text-sm text-primary/80">Group Journey (10 people)</p>
               </div>
             </div>
             

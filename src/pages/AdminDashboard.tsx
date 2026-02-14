@@ -11,9 +11,11 @@ import SecurityDepositsManager from "@/components/admin/SecurityDepositsManager"
 import BorrowExpensesManager from "@/components/admin/BorrowExpensesManager";
 import AuditLogManager from "@/components/admin/AuditLogManager";
 
-const ALLOWED_EMAILS = [
-  "plangoan@gmail.com",
-];
+const checkIsAdmin = async (email: string): Promise<boolean> => {
+  const { data, error } = await supabase.rpc("is_admin_email", { check_email: email });
+  if (error) return false;
+  return !!data;
+};
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -23,7 +25,12 @@ const AdminDashboard = () => {
   useEffect(() => {
     const checkAuth = async () => {
       const { data: { session } } = await supabase.auth.getSession();
-      if (!session?.user?.email || !ALLOWED_EMAILS.includes(session.user.email)) {
+      if (!session?.user?.email) {
+        navigate("/admin/login", { replace: true });
+        return;
+      }
+      const isAdmin = await checkIsAdmin(session.user.email);
+      if (!isAdmin) {
         navigate("/admin/login", { replace: true });
         return;
       }

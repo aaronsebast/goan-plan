@@ -15,7 +15,7 @@ const Index = () => {
       <HeroSection />
       <CountdownTimer />
       <ISTClock />
-      <GroupSection preview />
+      <GroupSection />
       <HomeHighlights />
       <Footer />
     </div>
