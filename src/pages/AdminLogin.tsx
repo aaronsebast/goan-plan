@@ -7,9 +7,11 @@ import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable";
 import { toast } from "@/hooks/use-toast";
 
-const ALLOWED_EMAILS = [
-  "plangoan@gmail.com",
-];
+const checkIsAdmin = async (email: string): Promise<boolean> => {
+  const { data, error } = await supabase.rpc("is_admin_email", { check_email: email });
+  if (error) return false;
+  return !!data;
+};
 
 const AdminLogin = () => {
   const navigate = useNavigate();
@@ -19,8 +21,11 @@ const AdminLogin = () => {
   useEffect(() => {
     const checkSession = async () => {
       const { data: { session } } = await supabase.auth.getSession();
-      if (session?.user?.email && ALLOWED_EMAILS.includes(session.user.email)) {
-        navigate("/admin/dashboard", { replace: true });
+      if (session?.user?.email) {
+        const isAdmin = await checkIsAdmin(session.user.email);
+        if (isAdmin) {
+          navigate("/admin/dashboard", { replace: true });
+        }
       }
       setChecking(false);
     };
@@ -28,7 +33,8 @@ const AdminLogin = () => {
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
       if (event === "SIGNED_IN" && session?.user?.email) {
-        if (ALLOWED_EMAILS.includes(session.user.email)) {
+        const isAdmin = await checkIsAdmin(session.user.email);
+        if (isAdmin) {
           navigate("/admin/dashboard", { replace: true });
         } else {
           await supabase.auth.signOut();
