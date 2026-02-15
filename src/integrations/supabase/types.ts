@@ -35,6 +35,27 @@ export type Database = {
         }
         Relationships: []
       }
+      app_settings: {
+        Row: {
+          key: string
+          updated_at: string
+          updated_by: string | null
+          value: Json
+        }
+        Insert: {
+          key: string
+          updated_at?: string
+          updated_by?: string | null
+          value?: Json
+        }
+        Update: {
+          key?: string
+          updated_at?: string
+          updated_by?: string | null
+          value?: Json
+        }
+        Relationships: []
+      }
       budget_accommodation: {
         Row: {
           id: string
@@ -182,6 +203,42 @@ export type Database = {
           ticket_cost_down?: number | null
           ticket_cost_up?: number | null
           updated_at?: string | null
+        }
+        Relationships: []
+      }
+      travel_id_submissions: {
+        Row: {
+          created_at: string
+          file_path: string | null
+          id: string
+          id_type: string | null
+          member_name: string
+          phone: string | null
+          submitted: boolean
+          submitted_at: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          file_path?: string | null
+          id?: string
+          id_type?: string | null
+          member_name: string
+          phone?: string | null
+          submitted?: boolean
+          submitted_at?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          file_path?: string | null
+          id?: string
+          id_type?: string | null
+          member_name?: string
+          phone?: string | null
+          submitted?: boolean
+          submitted_at?: string | null
+          updated_at?: string
         }
         Relationships: []
       }
