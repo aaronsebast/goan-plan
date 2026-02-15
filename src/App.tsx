@@ -14,6 +14,7 @@ import StayPage from "./pages/StayPage";
 import RoutesPage from "./pages/RoutesPage";
 import ItineraryPage from "./pages/ItineraryPage";
 import TicketsPage from "./pages/TicketsPage";
+import TravelIDPage from "./pages/TravelIDPage";
 import PlacesPage from "./pages/PlacesPage";
 import BudgetPage from "./pages/BudgetPage";
 import PackingPage from "./pages/PackingPage";
@@ -47,6 +48,7 @@ const App = () => {
                   <Route path="/routes" element={<RoutesPage />} />
                   <Route path="/itinerary" element={<ItineraryPage />} />
                   <Route path="/tickets" element={<TicketsPage />} />
+                  <Route path="/travel-id" element={<TravelIDPage />} />
                   <Route path="/places" element={<PlacesPage />} />
                   <Route path="/budget" element={<BudgetPage />} />
                   <Route path="/packing" element={<PackingPage />} />

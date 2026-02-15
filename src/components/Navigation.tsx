@@ -9,6 +9,7 @@ const mainNavItems = [
   { label: "Itinerary", href: "/itinerary" },
   { label: "Stay", href: "/stay" },
   { label: "Tickets", href: "/tickets" },
+  { label: "Travel ID", href: "/travel-id" },
   { label: "Budget", href: "/budget" },
 ];
 
