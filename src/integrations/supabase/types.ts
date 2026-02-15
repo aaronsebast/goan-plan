@@ -206,6 +206,42 @@ export type Database = {
         }
         Relationships: []
       }
+      BudgetItems: {
+        Row: {
+          amount: number | null
+          category: string | null
+          created_at: string
+          id: string
+          notes: string | null
+          paid_by: string | null
+          title: string | null
+          trip_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          amount?: number | null
+          category?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          paid_by?: string | null
+          title?: string | null
+          trip_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          amount?: number | null
+          category?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          paid_by?: string | null
+          title?: string | null
+          trip_id?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       travel_id_submissions: {
         Row: {
           created_at: string

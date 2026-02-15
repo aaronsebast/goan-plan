@@ -10,6 +10,8 @@ import TrainTicketsManager from "@/components/admin/TrainTicketsManager";
 import SecurityDepositsManager from "@/components/admin/SecurityDepositsManager";
 import BorrowExpensesManager from "@/components/admin/BorrowExpensesManager";
 import AuditLogManager from "@/components/admin/AuditLogManager";
+import TravelIDSubmissionsManager from "@/components/admin/TravelIDSubmissionsManager";
+import BudgetItemsManager from "@/components/admin/BudgetItemsManager";
 
 const checkIsAdmin = async (email: string): Promise<boolean> => {
   const { data, error } = await supabase.rpc("is_admin_email", { check_email: email });
@@ -112,6 +114,12 @@ const AdminDashboard = () => {
             <BorrowExpensesManager />
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
+            <BudgetItemsManager />
+          </motion.div>
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}>
+            <TravelIDSubmissionsManager />
+          </motion.div>
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}>
             <AuditLogManager />
           </motion.div>
         </div>
