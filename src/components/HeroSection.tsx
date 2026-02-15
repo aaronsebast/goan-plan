@@ -45,8 +45,8 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mb-10 max-w-2xl text-lg text-muted-foreground md:text-xl"
         >
-          A premium travel journal documenting our unforgettable group adventure
-          through the beaches, forts, and sunsets of India's tropical paradise.
+          10 friends, 4 days, and one epic Goa trip — beaches, forts, sunsets,
+          and memories we'll never shut up about.
         </motion.p>
 
         <motion.div
