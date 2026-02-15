@@ -32,10 +32,10 @@ const TravelIDPage = () => {
 
   const fetchData = useCallback(async () => {
     const [{ data: subs }, { data: settings }] = await Promise.all([
-      supabase.from("travel_id_submissions").select("member_name, submitted, submitted_at").order("member_name"),
+      supabase.from("travel_id_status").select("member_name, submitted, submitted_at").order("member_name") as any,
       supabase.from("app_settings").select("value").eq("key", "travel_id_collection_closed").single(),
     ]);
-    if (subs) setSubmissions(subs);
+    if (subs) setSubmissions(subs as Submission[]);
     if (settings) setClosed(settings.value === true || settings.value === "true");
   }, []);
 
@@ -65,16 +65,18 @@ const TravelIDPage = () => {
     setError("");
 
     try {
-      const ext = file.name.split(".").pop();
-      const path = `${name}/${Date.now()}-document.${ext}`;
-      const { error: uploadErr } = await supabase.storage.from("travel-ids").upload(path, file);
-      if (uploadErr) throw uploadErr;
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("memberName", name);
+      formData.append("phone", phone);
+      formData.append("idType", idType);
 
-      const { error: updateErr } = await supabase
-        .from("travel_id_submissions")
-        .update({ phone, id_type: idType, file_path: path, submitted: true, submitted_at: new Date().toISOString(), updated_at: new Date().toISOString() })
-        .eq("member_name", name);
-      if (updateErr) throw updateErr;
+      const { data, error: fnError } = await supabase.functions.invoke("upload-travel-id", {
+        body: formData,
+      });
+
+      if (fnError) throw fnError;
+      if (data?.error) throw new Error(data.error);
 
       setSuccess(true);
       setFile(null);

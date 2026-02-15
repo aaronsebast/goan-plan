@@ -244,7 +244,24 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      travel_id_status: {
+        Row: {
+          member_name: string | null
+          submitted: boolean | null
+          submitted_at: string | null
+        }
+        Insert: {
+          member_name?: string | null
+          submitted?: boolean | null
+          submitted_at?: string | null
+        }
+        Update: {
+          member_name?: string | null
+          submitted?: boolean | null
+          submitted_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       is_admin_email: { Args: { check_email: string }; Returns: boolean }
