@@ -14,6 +14,92 @@ export type Database = {
   }
   public: {
     Tables: {
+      accommodation_settings: {
+        Row: {
+          id: string
+          updated_at: string | null
+          villa_total: number
+        }
+        Insert: {
+          id?: string
+          updated_at?: string | null
+          villa_total?: number
+        }
+        Update: {
+          id?: string
+          updated_at?: string | null
+          villa_total?: number
+        }
+        Relationships: []
+      }
+      accommodation_sponsors: {
+        Row: {
+          amount_received: number
+          id: string
+          is_paid: boolean
+          member_id: string
+          share_amount: number
+          updated_at: string | null
+        }
+        Insert: {
+          amount_received?: number
+          id?: string
+          is_paid?: boolean
+          member_id: string
+          share_amount?: number
+          updated_at?: string | null
+        }
+        Update: {
+          amount_received?: number
+          id?: string
+          is_paid?: boolean
+          member_id?: string
+          share_amount?: number
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "accommodation_sponsors_member_id_fkey"
+            columns: ["member_id"]
+            isOneToOne: false
+            referencedRelation: "trip_members"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      admin_audit_log: {
+        Row: {
+          action_type: string
+          admin_identity: string | null
+          after_value: Json | null
+          before_value: Json | null
+          created_at: string
+          id: string
+          record_id: string | null
+          table_name: string
+        }
+        Insert: {
+          action_type: string
+          admin_identity?: string | null
+          after_value?: Json | null
+          before_value?: Json | null
+          created_at?: string
+          id?: string
+          record_id?: string | null
+          table_name: string
+        }
+        Update: {
+          action_type?: string
+          admin_identity?: string | null
+          after_value?: Json | null
+          before_value?: Json | null
+          created_at?: string
+          id?: string
+          record_id?: string | null
+          table_name?: string
+        }
+        Relationships: []
+      }
       admin_emails: {
         Row: {
           created_at: string | null
@@ -242,6 +328,141 @@ export type Database = {
         }
         Relationships: []
       }
+      deposit_settings: {
+        Row: {
+          default_deposit_amount: number
+          id: string
+        }
+        Insert: {
+          default_deposit_amount?: number
+          id?: string
+        }
+        Update: {
+          default_deposit_amount?: number
+          id?: string
+        }
+        Relationships: []
+      }
+      extra_expenses: {
+        Row: {
+          amount: number
+          created_at: string
+          description: string | null
+          expense_date: string
+          expense_type: string
+          id: string
+          paid_by_label: string | null
+          paid_by_member_id: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          amount?: number
+          created_at?: string
+          description?: string | null
+          expense_date?: string
+          expense_type?: string
+          id?: string
+          paid_by_label?: string | null
+          paid_by_member_id?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          description?: string | null
+          expense_date?: string
+          expense_type?: string
+          id?: string
+          paid_by_label?: string | null
+          paid_by_member_id?: string | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "extra_expenses_paid_by_member_id_fkey"
+            columns: ["paid_by_member_id"]
+            isOneToOne: false
+            referencedRelation: "trip_members"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      security_deposits: {
+        Row: {
+          collected: boolean
+          collected_at: string | null
+          deposit_amount: number
+          id: string
+          member_id: string
+          note: string | null
+          refunded: boolean
+          refunded_at: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          collected?: boolean
+          collected_at?: string | null
+          deposit_amount?: number
+          id?: string
+          member_id: string
+          note?: string | null
+          refunded?: boolean
+          refunded_at?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          collected?: boolean
+          collected_at?: string | null
+          deposit_amount?: number
+          id?: string
+          member_id?: string
+          note?: string | null
+          refunded?: boolean
+          refunded_at?: string | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "security_deposits_member_id_fkey"
+            columns: ["member_id"]
+            isOneToOne: false
+            referencedRelation: "trip_members"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      train_ticket_fares: {
+        Row: {
+          ekm_to_madgaon: number
+          id: string
+          madgaon_to_ekm: number
+          member_id: string
+          updated_at: string | null
+        }
+        Insert: {
+          ekm_to_madgaon?: number
+          id?: string
+          madgaon_to_ekm?: number
+          member_id: string
+          updated_at?: string | null
+        }
+        Update: {
+          ekm_to_madgaon?: number
+          id?: string
+          madgaon_to_ekm?: number
+          member_id?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "train_ticket_fares_member_id_fkey"
+            columns: ["member_id"]
+            isOneToOne: true
+            referencedRelation: "trip_members"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       travel_id_submissions: {
         Row: {
           created_at: string
@@ -275,6 +496,60 @@ export type Database = {
           submitted?: boolean
           submitted_at?: string | null
           updated_at?: string
+        }
+        Relationships: []
+      }
+      trip_budget_items: {
+        Row: {
+          actual_amount: number
+          created_at: string
+          estimated_amount: number
+          id: string
+          item_name: string
+          note: string | null
+          status: string
+          updated_at: string | null
+        }
+        Insert: {
+          actual_amount?: number
+          created_at?: string
+          estimated_amount?: number
+          id?: string
+          item_name: string
+          note?: string | null
+          status?: string
+          updated_at?: string | null
+        }
+        Update: {
+          actual_amount?: number
+          created_at?: string
+          estimated_amount?: number
+          id?: string
+          item_name?: string
+          note?: string | null
+          status?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      trip_members: {
+        Row: {
+          created_at: string
+          id: string
+          is_active: boolean
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          name: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          name?: string
         }
         Relationships: []
       }
