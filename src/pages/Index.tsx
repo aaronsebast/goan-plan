@@ -4,6 +4,7 @@ import CountdownTimer from "@/components/CountdownTimer";
 import ISTClock from "@/components/ISTClock";
 import GroupSection from "@/components/GroupSection";
 import HomeHighlights from "@/components/HomeHighlights";
+import LiveWeatherWidget from "@/components/LiveWeatherWidget";
 import Footer from "@/components/Footer";
 import EmergencyHelp from "@/components/EmergencyHelp";
 
@@ -16,6 +17,7 @@ const Index = () => {
       <CountdownTimer />
       <ISTClock />
       <GroupSection />
+      <LiveWeatherWidget />
       <HomeHighlights />
       <Footer />
     </div>
