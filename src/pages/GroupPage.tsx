@@ -10,7 +10,7 @@ const GroupPage = () => (
     <PageHero
       title="Our"
       titleAccent="Travelers"
-      subtitle="Meet the 10 friends making this adventure unforgettable"
+      subtitle="Meet the 11 friends making this adventure unforgettable"
       tag="The Squad"
       backgroundImage={northGoaBeach}
     />

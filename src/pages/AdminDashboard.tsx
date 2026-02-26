@@ -7,16 +7,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 
-// Finance module (new)
 import TripMembersManager from "@/components/admin/TripMembersManager";
 import AccommodationFinanceManager from "@/components/admin/AccommodationFinanceManager";
 import SecurityDepositsFinanceManager from "@/components/admin/SecurityDepositsFinanceManager";
 import TrainTicketFaresManager from "@/components/admin/TrainTicketFaresManager";
-import ExtraExpensesManager from "@/components/admin/ExtraExpensesManager";
 import TripBudgetItemsManager from "@/components/admin/TripBudgetItemsManager";
-import AdminAuditLogManager from "@/components/admin/AdminAuditLogManager";
-
-// Existing (untouched)
+import ExpenseSplitCalculator from "@/components/admin/ExpenseSplitCalculator";
 import TravelIDSubmissionsManager from "@/components/admin/TravelIDSubmissionsManager";
 
 const checkIsAdmin = async (email: string): Promise<boolean> => {
@@ -61,7 +57,6 @@ const AdminDashboard = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Top Nav */}
       <header className="sticky top-0 z-50 border-b bg-card/80 backdrop-blur-md">
         <div className="container mx-auto flex items-center justify-between px-4 py-3 sm:px-6">
           <div className="flex items-center gap-3">
@@ -82,7 +77,6 @@ const AdminDashboard = () => {
         </div>
       </header>
 
-      {/* Dashboard Content */}
       <main className="container mx-auto px-4 py-6 sm:px-6">
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="mb-6">
           <h2 className="mb-1 font-serif text-3xl font-bold text-foreground">Trip Finance Dashboard</h2>
@@ -94,21 +88,19 @@ const AdminDashboard = () => {
             <TabsTrigger value="accommodation" className="text-xs sm:text-sm">Accommodation</TabsTrigger>
             <TabsTrigger value="deposits" className="text-xs sm:text-sm">Deposits</TabsTrigger>
             <TabsTrigger value="train" className="text-xs sm:text-sm">Train Tickets</TabsTrigger>
-            <TabsTrigger value="expenses" className="text-xs sm:text-sm">Expenses</TabsTrigger>
+            <TabsTrigger value="split" className="text-xs sm:text-sm">Expense Split</TabsTrigger>
             <TabsTrigger value="budget" className="text-xs sm:text-sm">Budget Items</TabsTrigger>
             <TabsTrigger value="members" className="text-xs sm:text-sm">Members</TabsTrigger>
             <TabsTrigger value="travel-id" className="text-xs sm:text-sm">Travel ID</TabsTrigger>
-            <TabsTrigger value="audit" className="text-xs sm:text-sm">Audit Log</TabsTrigger>
           </TabsList>
 
           <TabsContent value="accommodation"><AccommodationFinanceManager /></TabsContent>
           <TabsContent value="deposits"><SecurityDepositsFinanceManager /></TabsContent>
           <TabsContent value="train"><TrainTicketFaresManager /></TabsContent>
-          <TabsContent value="expenses"><ExtraExpensesManager /></TabsContent>
+          <TabsContent value="split"><ExpenseSplitCalculator /></TabsContent>
           <TabsContent value="budget"><TripBudgetItemsManager /></TabsContent>
           <TabsContent value="members"><TripMembersManager /></TabsContent>
           <TabsContent value="travel-id"><TravelIDSubmissionsManager /></TabsContent>
-          <TabsContent value="audit"><AdminAuditLogManager /></TabsContent>
         </Tabs>
       </main>
     </div>

@@ -8,16 +8,12 @@ const HeroSection = () => {
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
         style={{ backgroundImage: `url(${heroImage})` }}
       />
-
-      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
 
-      {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -26,7 +22,7 @@ const HeroSection = () => {
           className="mb-4"
         >
           <span className="inline-block rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-xs font-semibold tracking-[0.2em] text-primary backdrop-blur-sm uppercase">
-            April 23 – 27, 2026
+            April 24 – 28, 2026
           </span>
         </motion.div>
 
@@ -45,7 +41,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mb-10 max-w-2xl text-lg text-muted-foreground md:text-xl"
         >
-          10 friends, 4 days, and one epic Goa trip — beaches, forts, sunsets,
+          11 friends, 4 days, and one epic Goa trip — beaches, forts, sunsets,
           and memories we'll never shut up about.
         </motion.p>
 
@@ -70,17 +66,13 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
       >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
+        <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 2, repeat: Infinity }}>
           <ChevronDown className="h-8 w-8 text-primary/60" />
         </motion.div>
       </motion.div>
