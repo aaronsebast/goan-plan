@@ -1,0 +1,383 @@
+import { useRef } from "react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
+import {
+  MapPin, Clock, Bike, Sun, PartyPopper, Eye, Gem, ChevronDown, Fuel, Gauge, Route,
+} from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Badge } from "@/components/ui/badge";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Day1RouteMap from "@/components/Day1RouteMap";
+import heroSunset from "@/assets/hero-goa-sunset.jpg";
+
+interface Stop {
+  id: string;
+  number: number;
+  name: string;
+  time: string;
+  distance: string;
+  scooterTime: string;
+  description: string;
+  badges?: { label: string; variant: "sunset" | "hidden" | "party" }[];
+  partyOptions?: boolean;
+}
+
+const stops: Stop[] = [
+  {
+    id: "parra",
+    number: 1,
+    name: "Parra Coconut Tree Road",
+    time: "3:00 PM – 3:25 PM",
+    distance: "5 km",
+    scooterTime: "10–12 mins",
+    description:
+      "Iconic coconut tree tunnel road. Perfect aesthetic photo stop and reel location. Spend 20 minutes max.",
+  },
+  {
+    id: "aguada",
+    number: 2,
+    name: "Fort Aguada",
+    time: "3:45 PM – 4:30 PM",
+    distance: "18 km",
+    scooterTime: "30–35 mins",
+    description:
+      "Historic sea fort with cliff views and lighthouse. Windy panoramic Arabian Sea views. Quick 30-minute explore.",
+  },
+  {
+    id: "candolim",
+    number: 3,
+    name: "Candolim Beach",
+    time: "4:40 PM – 5:15 PM",
+    distance: "4 km",
+    scooterTime: "8–10 mins",
+    description:
+      "Calmer alternative to Baga. Relax, walk along shoreline, quick coconut water break.",
+  },
+  {
+    id: "ashwem",
+    number: 4,
+    name: "Ashwem Beach",
+    time: "6:00 PM – 6:40 PM",
+    distance: "23 km",
+    scooterTime: "40–45 mins",
+    description:
+      "Wide, clean, peaceful beach. Perfect golden hour sunset vibes. Less crowded and premium feel.",
+    badges: [{ label: "Sunset Highlight", variant: "sunset" }],
+  },
+  {
+    id: "querim",
+    number: 5,
+    name: "Querim Beach (Keri Beach + Cave)",
+    time: "7:00 PM – 7:45 PM",
+    distance: "14 km",
+    scooterTime: "20–25 mins",
+    description:
+      "Hidden northernmost beach with small rock cave. Raw, untouched vibe. Ideal hidden sunset photography spot.",
+    badges: [{ label: "Hidden Gem", variant: "hidden" }],
+  },
+  {
+    id: "baga",
+    number: 6,
+    name: "Baga – Tito's Lane (Party Mode)",
+    time: "Around 9:00–9:30 PM",
+    distance: "25 km",
+    scooterTime: "45–50 mins",
+    description: "Nightlife hub of North Goa. Clubs, music, party energy.",
+    badges: [{ label: "Party Mode", variant: "party" }],
+    partyOptions: true,
+  },
+];
+
+const badgeStyle = (variant: string) => {
+  switch (variant) {
+    case "sunset":
+      return "bg-accent/20 text-accent border-accent/40";
+    case "hidden":
+      return "bg-ocean/20 text-ocean border-ocean/40";
+    case "party":
+      return "bg-secondary/20 text-secondary border-secondary/40 animate-pulse";
+    default:
+      return "";
+  }
+};
+
+const badgeIcon = (variant: string) => {
+  switch (variant) {
+    case "sunset": return <Sun className="h-3 w-3" />;
+    case "hidden": return <Gem className="h-3 w-3" />;
+    case "party": return <PartyPopper className="h-3 w-3" />;
+    default: return null;
+  }
+};
+
+const placeholderImages = [1, 2, 3];
+
+const Day1Page = () => {
+  const stopRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+  const scrollToNext = (currentIndex: number) => {
+    const next = stops[currentIndex + 1];
+    if (next && stopRefs.current[next.id]) {
+      stopRefs.current[next.id]!.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  return (
+    <div className="min-h-screen page-enter">
+      <Navigation />
+
+      {/* Hero */}
+      <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden">
+        <img
+          src={heroSunset}
+          alt="Day 1 Hero"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
+        <div className="relative z-10 px-6 text-center">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="mb-3 inline-block rounded-full bg-accent/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent"
+          >
+            Day 1 · 25 April
+          </motion.span>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
+            className="font-serif text-4xl font-bold text-foreground md:text-6xl"
+          >
+            Explorer + Hidden +{" "}
+            <span className="italic text-primary">Party Combo</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="mx-auto mt-4 max-w-lg text-muted-foreground"
+          >
+            Route optimized by distance
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.65 }}
+            className="mt-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-5 py-2 text-sm font-medium text-primary"
+          >
+            <Clock className="h-4 w-4" />
+            Depart 3:00 PM from Arpora
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Route Map */}
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-8 text-center"
+          >
+            <h2 className="font-serif text-2xl font-semibold text-foreground md:text-3xl">
+              Animated <span className="italic text-primary">Route</span>
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Arpora → Parra → Aguada → Candolim → Ashwem → Querim → Baga
+            </p>
+          </motion.div>
+          <Day1RouteMap />
+        </div>
+      </section>
+
+      {/* Timeline Accordion */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12 text-center"
+          >
+            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
+              Timeline
+            </span>
+            <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">
+              Stop-by-Stop <span className="italic text-primary">Itinerary</span>
+            </h2>
+          </motion.div>
+
+          <div className="mx-auto max-w-3xl">
+            <Accordion type="multiple" defaultValue={["parra", "baga"]}>
+              {stops.map((stop, idx) => (
+                <motion.div
+                  key={stop.id}
+                  ref={(el) => { stopRefs.current[stop.id] = el; }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.08 }}
+                >
+                  <AccordionItem
+                    value={stop.id}
+                    className="mb-4 overflow-hidden rounded-2xl border-none glass-card"
+                  >
+                    <AccordionTrigger className="px-5 py-4 hover:no-underline">
+                      <div className="flex flex-1 flex-wrap items-center gap-3 text-left">
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
+                          {stop.number}
+                        </span>
+                        <div className="min-w-0 flex-1">
+                          <h3 className="font-serif text-base font-semibold text-foreground md:text-lg">
+                            {stop.name}
+                          </h3>
+                          <div className="mt-1 flex flex-wrap gap-2">
+                            <Badge variant="outline" className="gap-1 text-[10px]">
+                              <MapPin className="h-3 w-3" /> {stop.distance}
+                            </Badge>
+                            <Badge variant="outline" className="gap-1 text-[10px]">
+                              <Bike className="h-3 w-3" /> {stop.scooterTime}
+                            </Badge>
+                            {stop.badges?.map((b) => (
+                              <span
+                                key={b.label}
+                                className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-semibold ${badgeStyle(b.variant)}`}
+                              >
+                                {badgeIcon(b.variant)}
+                                {b.label}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                        <span className="shrink-0 rounded-lg bg-muted px-3 py-1.5 text-xs font-semibold text-muted-foreground">
+                          {stop.time.split("–")[0].trim()}
+                        </span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-5 pb-5">
+                      <div className="space-y-4">
+                        <div className="rounded-xl bg-muted/30 p-4">
+                          <p className="flex items-start gap-2 text-sm text-foreground">
+                            <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                            <span>
+                              <strong>Time:</strong> {stop.time}
+                            </span>
+                          </p>
+                          <p className="mt-2 text-sm text-muted-foreground">{stop.description}</p>
+                        </div>
+
+                        {/* Photo carousel placeholder */}
+                        <div className="relative">
+                          <Carousel className="w-full">
+                            <CarouselContent>
+                              {placeholderImages.map((n) => (
+                                <CarouselItem key={n} className="basis-2/3 md:basis-1/2">
+                                  <div className="flex aspect-video items-center justify-center rounded-xl bg-muted/40 border border-border/30">
+                                    <Eye className="h-8 w-8 text-muted-foreground/40" />
+                                  </div>
+                                </CarouselItem>
+                              ))}
+                            </CarouselContent>
+                            <CarouselPrevious className="left-1" />
+                            <CarouselNext className="right-1" />
+                          </Carousel>
+                        </div>
+
+                        {/* Party options */}
+                        {stop.partyOptions && (
+                          <div className="space-y-4">
+                            <h4 className="text-sm font-semibold text-foreground">Options at Tito's Lane</h4>
+                            <div className="grid gap-3 sm:grid-cols-3">
+                              {["Free Entry", "Paid Entry", "Ladies Night"].map((opt) => (
+                                <div
+                                  key={opt}
+                                  className="rounded-xl border border-border/30 bg-muted/20 p-3 text-center text-sm font-medium text-foreground"
+                                >
+                                  {opt}
+                                </div>
+                              ))}
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                              {["Famous clubs", "Live DJs", "Peak time 11 PM+"].map((chip) => (
+                                <span
+                                  key={chip}
+                                  className="rounded-full bg-secondary/15 px-3 py-1 text-xs font-medium text-secondary"
+                                >
+                                  {chip}
+                                </span>
+                              ))}
+                            </div>
+                            {/* Party banner */}
+                            <motion.div
+                              className="flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-secondary/20 via-primary/20 to-accent/20 border border-secondary/30 py-4"
+                              animate={{ opacity: [0.7, 1, 0.7] }}
+                              transition={{ duration: 2, repeat: Infinity }}
+                            >
+                              <PartyPopper className="h-6 w-6 text-secondary" />
+                              <span className="text-lg font-bold text-secondary">Party Mode ON</span>
+                              <PartyPopper className="h-6 w-6 text-secondary" />
+                            </motion.div>
+                          </div>
+                        )}
+
+                        {/* Next stop button */}
+                        {idx < stops.length - 1 && (
+                          <button
+                            onClick={() => scrollToNext(idx)}
+                            className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-all hover:bg-primary/20"
+                          >
+                            Next Stop <ChevronDown className="h-4 w-4" />
+                          </button>
+                        )}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </motion.div>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* Total Ride Overview */}
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mx-auto max-w-2xl rounded-3xl glass-card p-8"
+          >
+            <h3 className="mb-6 text-center font-serif text-2xl font-semibold text-foreground">
+              Total Ride <span className="italic text-primary">Overview</span>
+            </h3>
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+              {[
+                { icon: Route, label: "Total Distance", value: "~90–95 km" },
+                { icon: Fuel, label: "Petrol Needed", value: "2–2.5 litres" },
+                { icon: Bike, label: "Mode", value: "Scooter Friendly" },
+                { icon: Gauge, label: "Difficulty", value: "Moderate" },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="flex flex-col items-center rounded-xl bg-muted/30 p-4 text-center"
+                >
+                  <stat.icon className="mb-2 h-6 w-6 text-primary" />
+                  <span className="text-xs text-muted-foreground">{stat.label}</span>
+                  <span className="mt-1 text-sm font-semibold text-foreground">{stat.value}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Day1Page;

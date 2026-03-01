@@ -332,10 +332,7 @@ const TicketSection = ({
           </AnimatePresence>
         </div>
 
-        {/* Coach Layout */}
-        <div className="mx-auto mt-12 max-w-6xl">
-          <CoachLayout tickets={tickets} coachName={coachName} />
-        </div>
+        {/* Coach layout removed */}
       </div>
     </section>
   );

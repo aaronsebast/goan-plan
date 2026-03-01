@@ -10,7 +10,7 @@ import sonuProfile from "@/assets/sonu-profile.jpg";
 import aaronProfile from "@/assets/aaron-profile.jpg";
 import aldrenaProfile from "@/assets/aldrena-profile.jpg";
 import henoshProfile from "@/assets/henosh-profile.jpg";
-import rahulProfile from "@/assets/rahul-profile.jpg";
+// rahulProfile removed - using placeholder
 
 const groupMembers: { name: string; fullName: string; initial: string; image: string }[] = [
   { name: "Aaron", fullName: "Aaron Sebastian", initial: "A", image: aaronProfile },
@@ -23,7 +23,7 @@ const groupMembers: { name: string; fullName: string; initial: string; image: st
   { name: "Hayden", fullName: "Hayden Fernandez", initial: "H", image: haydenProfile },
   { name: "Megha", fullName: "Megha C A", initial: "M", image: meghaProfile },
   { name: "Alter", fullName: "Alter John Marian", initial: "A", image: alterProfile },
-  { name: "Rahul", fullName: "Rahul Reji", initial: "R", image: rahulProfile },
+  { name: "Rahul", fullName: "Rahul Reji", initial: "R", image: "" },
 ];
 
 interface GroupSectionProps {
@@ -62,7 +62,13 @@ const GroupSection = ({ preview = false }: GroupSectionProps) => {
             >
               <div className="glass-card card-hover-lift flex flex-col items-center rounded-2xl p-4 md:p-5">
                 <div className="mb-3 h-16 w-16 overflow-hidden rounded-full ring-2 ring-primary/30 md:h-20 md:w-20">
-                  <img src={member.image} alt={member.fullName} className="h-full w-full object-cover" />
+                  {member.image ? (
+                    <img src={member.image} alt={member.fullName} className="h-full w-full object-cover" />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-muted text-2xl font-bold text-muted-foreground">
+                      {member.initial}
+                    </div>
+                  )}
                 </div>
                 <span className="text-sm font-medium text-foreground md:text-base">
                   {member.name}
