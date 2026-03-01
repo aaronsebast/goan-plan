@@ -14,7 +14,7 @@ const mainNavItems = [
 ];
 
 const moreNavItems = [
-  { label: "Routes", href: "/routes" },
+  { label: "Day 1", href: "/day1" },
   { label: "Places", href: "/places" },
   { label: "Packing", href: "/packing" },
   { label: "Gallery", href: "/gallery" },

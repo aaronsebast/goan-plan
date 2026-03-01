@@ -13,6 +13,7 @@ import GroupPage from "./pages/GroupPage";
 import StayPage from "./pages/StayPage";
 import RoutesPage from "./pages/RoutesPage";
 import ItineraryPage from "./pages/ItineraryPage";
+import Day1Page from "./pages/Day1Page";
 import TicketsPage from "./pages/TicketsPage";
 import TravelIDPage from "./pages/TravelIDPage";
 import PlacesPage from "./pages/PlacesPage";
@@ -45,8 +46,9 @@ const App = () => {
                   <Route path="/" element={<Index />} />
                   <Route path="/group" element={<GroupPage />} />
                   <Route path="/stay" element={<StayPage />} />
-                  <Route path="/routes" element={<RoutesPage />} />
+                  <Route path="/routes" element={<Day1Page />} />
                   <Route path="/itinerary" element={<ItineraryPage />} />
+                  <Route path="/day1" element={<Day1Page />} />
                   <Route path="/tickets" element={<TicketsPage />} />
                   <Route path="/travel-id" element={<TravelIDPage />} />
                   <Route path="/places" element={<PlacesPage />} />
