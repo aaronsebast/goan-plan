@@ -4,14 +4,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "@/hooks/useTheme";
 import LoadingScreen from "@/components/LoadingScreen";
 import DynamicBackground from "@/components/DynamicBackground";
 import Index from "./pages/Index";
-import GroupPage from "./pages/GroupPage";
 import StayPage from "./pages/StayPage";
-import RoutesPage from "./pages/RoutesPage";
 import ItineraryPage from "./pages/ItineraryPage";
 import Day1Page from "./pages/Day1Page";
 import TicketsPage from "./pages/TicketsPage";
@@ -44,9 +42,9 @@ const App = () => {
               <DynamicBackground>
                 <Routes>
                   <Route path="/" element={<Index />} />
-                  <Route path="/group" element={<GroupPage />} />
+                  <Route path="/group" element={<Navigate to="/" replace />} />
+                  <Route path="/routes" element={<Navigate to="/day1" replace />} />
                   <Route path="/stay" element={<StayPage />} />
-                  <Route path="/routes" element={<Day1Page />} />
                   <Route path="/itinerary" element={<ItineraryPage />} />
                   <Route path="/day1" element={<Day1Page />} />
                   <Route path="/tickets" element={<TicketsPage />} />
