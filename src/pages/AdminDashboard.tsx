@@ -14,6 +14,7 @@ import TrainTicketFaresManager from "@/components/admin/TrainTicketFaresManager"
 import TripBudgetItemsManager from "@/components/admin/TripBudgetItemsManager";
 import ExpenseSplitCalculator from "@/components/admin/ExpenseSplitCalculator";
 import TravelIDSubmissionsManager from "@/components/admin/TravelIDSubmissionsManager";
+import SponsorExpensesManager from "@/components/admin/SponsorExpensesManager";
 
 const checkIsAdmin = async (email: string): Promise<boolean> => {
   const { data, error } = await supabase.rpc("is_admin_email", { check_email: email });
@@ -92,6 +93,7 @@ const AdminDashboard = () => {
             <TabsTrigger value="budget" className="text-xs sm:text-sm">Budget Items</TabsTrigger>
             <TabsTrigger value="members" className="text-xs sm:text-sm">Members</TabsTrigger>
             <TabsTrigger value="travel-id" className="text-xs sm:text-sm">Travel ID</TabsTrigger>
+            <TabsTrigger value="sponsor" className="text-xs sm:text-sm">Sponsor Expenses</TabsTrigger>
           </TabsList>
 
           <TabsContent value="accommodation"><AccommodationFinanceManager /></TabsContent>
@@ -101,6 +103,7 @@ const AdminDashboard = () => {
           <TabsContent value="budget"><TripBudgetItemsManager /></TabsContent>
           <TabsContent value="members"><TripMembersManager /></TabsContent>
           <TabsContent value="travel-id"><TravelIDSubmissionsManager /></TabsContent>
+          <TabsContent value="sponsor"><SponsorExpensesManager /></TabsContent>
         </Tabs>
       </main>
     </div>

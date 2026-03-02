@@ -431,6 +431,36 @@ export type Database = {
           },
         ]
       }
+      sponsor_expenses: {
+        Row: {
+          amount: number
+          category: string | null
+          created_at: string
+          expense_date: string
+          id: string
+          reason: string
+          spender_name: string
+        }
+        Insert: {
+          amount?: number
+          category?: string | null
+          created_at?: string
+          expense_date?: string
+          id?: string
+          reason: string
+          spender_name: string
+        }
+        Update: {
+          amount?: number
+          category?: string | null
+          created_at?: string
+          expense_date?: string
+          id?: string
+          reason?: string
+          spender_name?: string
+        }
+        Relationships: []
+      }
       train_ticket_fares: {
         Row: {
           ekm_to_madgaon: number
