@@ -7,11 +7,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 
-import TripMembersManager from "@/components/admin/TripMembersManager";
 import AccommodationFinanceManager from "@/components/admin/AccommodationFinanceManager";
 import SecurityDepositsFinanceManager from "@/components/admin/SecurityDepositsFinanceManager";
 import TrainTicketFaresManager from "@/components/admin/TrainTicketFaresManager";
-import TripBudgetItemsManager from "@/components/admin/TripBudgetItemsManager";
 import ExpenseSplitCalculator from "@/components/admin/ExpenseSplitCalculator";
 import TravelIDSubmissionsManager from "@/components/admin/TravelIDSubmissionsManager";
 import SponsorExpensesManager from "@/components/admin/SponsorExpensesManager";
@@ -90,18 +88,14 @@ const AdminDashboard = () => {
             <TabsTrigger value="deposits" className="text-xs sm:text-sm">Deposits</TabsTrigger>
             <TabsTrigger value="train" className="text-xs sm:text-sm">Train Tickets</TabsTrigger>
             <TabsTrigger value="split" className="text-xs sm:text-sm">Expense Split</TabsTrigger>
-            <TabsTrigger value="budget" className="text-xs sm:text-sm">Budget Items</TabsTrigger>
-            <TabsTrigger value="members" className="text-xs sm:text-sm">Members</TabsTrigger>
             <TabsTrigger value="travel-id" className="text-xs sm:text-sm">Travel ID</TabsTrigger>
-            <TabsTrigger value="sponsor" className="text-xs sm:text-sm">Sponsor Expenses</TabsTrigger>
+            <TabsTrigger value="sponsor" className="text-xs sm:text-sm">My Private Dashboard</TabsTrigger>
           </TabsList>
 
           <TabsContent value="accommodation"><AccommodationFinanceManager /></TabsContent>
           <TabsContent value="deposits"><SecurityDepositsFinanceManager /></TabsContent>
           <TabsContent value="train"><TrainTicketFaresManager /></TabsContent>
           <TabsContent value="split"><ExpenseSplitCalculator /></TabsContent>
-          <TabsContent value="budget"><TripBudgetItemsManager /></TabsContent>
-          <TabsContent value="members"><TripMembersManager /></TabsContent>
           <TabsContent value="travel-id"><TravelIDSubmissionsManager /></TabsContent>
           <TabsContent value="sponsor"><SponsorExpensesManager /></TabsContent>
         </Tabs>
