@@ -7,11 +7,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 
-import TripMembersManager from "@/components/admin/TripMembersManager";
 import AccommodationFinanceManager from "@/components/admin/AccommodationFinanceManager";
 import SecurityDepositsFinanceManager from "@/components/admin/SecurityDepositsFinanceManager";
 import TrainTicketFaresManager from "@/components/admin/TrainTicketFaresManager";
-import TripBudgetItemsManager from "@/components/admin/TripBudgetItemsManager";
 import ExpenseSplitCalculator from "@/components/admin/ExpenseSplitCalculator";
 import TravelIDSubmissionsManager from "@/components/admin/TravelIDSubmissionsManager";
 import SponsorExpensesManager from "@/components/admin/SponsorExpensesManager";
