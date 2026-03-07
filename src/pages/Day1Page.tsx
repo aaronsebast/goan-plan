@@ -126,7 +126,11 @@ const Day1Page = () => {
   };
 
   const openMaps = (query: string) => {
-    window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, "_blank");
+    if (query.startsWith("http")) {
+      window.open(query, "_blank");
+    } else {
+      window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, "_blank");
+    }
   };
 
   const totalDistance = 91;
