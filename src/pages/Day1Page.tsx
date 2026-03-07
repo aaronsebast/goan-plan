@@ -47,7 +47,7 @@ const stops: Stop[] = [
     time: "3:00 PM – 3:25 PM", distance: "5 km", distanceKm: 5, scooterTime: "10 min",
     description: "Iconic coconut tree tunnel road. Perfect aesthetic photo stop and reel location. Spend 20 minutes max.",
     images: [parraImg, northGoaImg, heroSunset],
-    mapsQuery: "Parra+Road+Goa",
+    mapsQuery: "https://maps.app.goo.gl/eodD6dHv2Xb6yaYY6?g_st=ic",
   },
   {
     id: "aguada", number: 3, name: "Fort Aguada",
@@ -126,7 +126,11 @@ const Day1Page = () => {
   };
 
   const openMaps = (query: string) => {
-    window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, "_blank");
+    if (query.startsWith("http")) {
+      window.open(query, "_blank");
+    } else {
+      window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, "_blank");
+    }
   };
 
   const totalDistance = 91;
